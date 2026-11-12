@@ -13,14 +13,14 @@
     "strapi": "node node_modules/@strapi/strapi/bin/strapi.js"
   },
   "dependencies": {
-    "@strapi/database": "^4.26.2",
-    "@strapi/plugin-cloud": "^5.18.0",
-    "@strapi/plugin-users-permissions": "^5.19.0",
-    "@strapi/strapi": "^5.61.1",
+    "@strapi/database": "5.60.0",
+    "@strapi/plugin-cloud": "5.60.0",
+    "@strapi/plugin-users-permissions": "5.60.0",
+    "@strapi/strapi": "5.60.0",
     "better-sqlite3": "12.11.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^7.18.5",
+    "react-router-dom": "^6.30.3",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {

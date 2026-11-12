@@ -3,7 +3,7 @@ services:
     name: my-strapi-project
     runtime: node
     plan: free
-    buildCommand: npm install && node node_modules/@strapi/strapi/bin/strapi.js build
+    buildCommand: npm install --legacy-peer-deps && node node_modules/@strapi/strapi/bin/strapi.js build
     startCommand: node node_modules/@strapi/strapi/bin/strapi.js start
     envVars:
       - key: NODE_ENV
