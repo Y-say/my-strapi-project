@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Local env — never commit real secrets
+.env
+
+# Strapi temp files
+.tmp/
+.cache/
+.strapi/
+
+# Uploads (use external storage in production)
+public/uploads/*
+!public/uploads/.gitkeep
