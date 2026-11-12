@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
-const database_1 = require("@strapi/database");
+const validClients = ['sqlite', 'postgres', 'mysql'];
 const config = ({ env }) => {
     const client = env('DATABASE_CLIENT', 'sqlite');
-    if (!(0, database_1.isDatabaseClientKind)(client)) {
+    if (!validClients.includes(client)) {
         throw new Error(`Unsupported DATABASE_CLIENT: ${client}. Use "postgres", "mysql", or "sqlite".`);
     }
     const connections = {

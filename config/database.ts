@@ -1,17 +1,19 @@
 import path from 'path';
 import type { Core } from '@strapi/strapi';
-import { isDatabaseClientKind } from '@strapi/database';
+
+const validClients = ['sqlite', 'postgres', 'mysql'] as const;
+type DatabaseClient = (typeof validClients)[number];
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  const client = env('DATABASE_CLIENT', 'sqlite') as DatabaseClient;
 
-  if (!isDatabaseClientKind(client)) {
+  if (!validClients.includes(client)) {
     throw new Error(
       `Unsupported DATABASE_CLIENT: ${client}. Use "postgres", "mysql", or "sqlite".`
     );
   }
 
-  const connections: Record<Core.Config.Database.ClientKind, Core.Config.Database['connection']> = {
+  const connections: Record<DatabaseClient, Core.Config.Database['connection']> = {
     mysql: {
       client: 'mysql',
       connection: {
